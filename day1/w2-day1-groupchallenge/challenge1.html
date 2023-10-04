@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RWD Group Challenge 1</title>
+    <style>
+        /* You are not require to add any new styles other than within media queries */
+        .message {
+            text-align: center;
+            padding: 200px 20px;
+            font-family:Arial, Helvetica, sans-serif;
+            color: #666;
+            font-size:2.5em;
+            width: 90%;
+            height: 3em;
+            background-color:blanchedalmond;
+        }
+        
+        /* Extra small devices (phones, 600px and down) */
+        @media only screen and (max-width: 600px) {
+             /* Add the extra text for extra small screens */
+            .message::after {
+            content: " as in...";
+            font-size: 20px;
+            }
+        }
+        
+        /* Small devices (portrait tablets and large phones, 600px and up) */
+        @media only screen and (min-width: 600px) {
+             /* Add the extra text for small screens */
+            .message::after {
+            content: " Web Design";
+            color: red;
+            }
+            
+        }
+        
+        /* Medium devices (landscape tablets, 768px and up) */
+        @media only screen and (min-width: 768px) {
+             /* Add the extra text for medium screens */
+            .message::before {
+            content: "RWD: ";
+            font-weight: bold;
+            }
+        } 
+        
+        /* Large devices (laptops/desktops, 992px and up) */
+        @media only screen and (min-width: 992px) {
+            /* Add the extra text for medium screens */
+            .message::before {
+            content: "You Are Learning ";
+            font-size: 0.8em;
+            color: rgb(50, 194, 207)
+            }
+        } 
+        
+        /* Extra large devices (large laptops and desktops, 1200px and up) */
+        @media only screen and (min-width: 1200px) {
+            /* Change the text for extra large screens */
+            .message::before {
+                content: "Learn ";  
+                color: rgb(230, 24, 220)
+            }
+            .message::after {
+                content: "";
+            }
+        }  
+    </style>
+</head>
+<body>
+
+    <h2>Change in Message When Viewport is Resize</h2>
+    <p class="message">Responsive</p>     
+    <script>
+        // JavaScript to change the content for extra large devices
+        function updateMessageContent() {
+            if (window.innerWidth >= 1200) {
+                document.querySelector('.message').textContent = 'Responsively!';
+            }
+        }
+   
+        // Call the function when the window is resized
+        window.addEventListener('resize', updateMessageContent);
+   
+        // Initial call to set the content on page load
+        updateMessageContent();
+   </script>
+</body>
+
+</html>
